@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD de Telas</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="./homer.png" />
+    <!-- Link para o Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* Estilos principais */
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f7f7f7;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 500px;
+            transition: background-color 0.3s ease;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4CAF50;
+            transition: color 0.3s ease;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            margin-bottom: 15px;
+        }
+
+        .btn-custom {
+            width: 100%;
+            font-size: 16px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .btn-custom:hover {
+            background-color: #45a049;
+        }
+
+        .nav-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .nav-links a {
+            display: block;
+            margin: 8px 0;
+            color: #007bff;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Modo Noturno */
+        .dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        .dark-mode .container {
+            background-color: #444;
+        }
+
+        .dark-mode .btn-custom {
+            background-color: #222;
+        }
+
+        .dark-mode .btn-custom:hover {
+            background-color: #333;
+        }
+
+        .dark-mode .nav-links a {
+            color: #17a2b8;
+        }
+
+        /* Responsividade */
+        @media (max-width: 576px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1><i class="fas fa-user-plus"></i> Cadastro de Usuário</h1>
+        <form id="frmCadastro">
+            <div class="mb-3">
+                <label for="txtNome" class="form-label"><i class="fas fa-user"></i> Nome</label>
+                <input type="text" id="txtNome" class="form-control" placeholder="Digite o Nome" required />
+            </div>
+            <div class="mb-3">
+                <label for="txtLogin" class="form-label"><i class="fas fa-user-circle"></i> Login</label>
+                <input type="text" id="txtLogin" class="form-control" placeholder="Digite o Login" required />
+            </div>
+            <div class="mb-3">
+                <label for="txtSenha" class="form-label"><i class="fas fa-lock"></i> Senha</label>
+                <input type="password" id="txtSenha" class="form-control" placeholder="Digite a Senha" required />
+            </div>
+            <button type="submit" class="btn-custom"><i class="fas fa-check-circle"></i> Cadastrar</button>
+        </form>
+
+        <div class="nav-links">
+            <a class="btn btn-link" href="./login.html" target="_blank"><i class="fas fa-sign-in-alt"></i> Login</a>
+            <a class="btn btn-link" href="./cadastro.html" target="_blank"><i class="fas fa-user-plus"></i> Cadastro</a>
+            <a class="btn btn-link" href="./leitura.html" target="_blank"><i class="fas fa-book"></i> Leitura</a>
+            <a class="btn btn-link" href="./atualizacao.html" target="_blank"><i class="fas fa-sync-alt"></i> Atualização</a>
+            <a class="btn btn-link" href="./remocao.html" target="_blank"><i class="fas fa-trash-alt"></i> Remoção</a>
+        </div>
+
+        <!-- Botão para alternar o modo -->
+        <button id="toggleMode" class="btn btn-outline-secondary mt-3">
+            <i class="fas fa-moon"></i> Modo Noturno
+        </button>
+    </div>
+
+    <script src="./index.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // JavaScript para alternar o modo noturno
+        const toggleButton = document.getElementById('toggleMode');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            // Alterando o ícone do botão conforme o modo
+            if (body.classList.contains('dark-mode')) {
+                toggleButton.innerHTML = '<i class="fas fa-sun"></i> Modo Claro';
+            } else {
+                toggleButton.innerHTML = '<i class="fas fa-moon"></i> Modo Noturno';
+            }
+        });
+    </script>
+</body>
+
+</html>

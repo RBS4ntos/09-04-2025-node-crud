@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="./homer.png" />
+    <!-- Link para o Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* Estilos principais */
+        body {
+            background-color: #f8f9fa;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 450px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h2 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 30px;
+            transition: color 0.3s;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            box-shadow: none;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 16px;
+            background-color: #007bff;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-primary:active {
+            background-color: #004085;
+        }
+
+        .text-center a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .text-center a:hover {
+            text-decoration: underline;
+        }
+
+        /* Modo Noturno */
+        .dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        .dark-mode .container {
+            background-color: #444;
+        }
+
+        .dark-mode .btn-primary {
+            background-color: #222;
+        }
+
+        .dark-mode .btn-primary:hover {
+            background-color: #333;
+        }
+
+        .dark-mode .text-center a {
+            color: #17a2b8;
+        }
+
+        /* Responsividade */
+        @media (max-width: 576px) {
+            .container {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+        <form id="frmLogin">
+            <div class="mb-3">
+                <label for="txtNome" class="form-label"><i class="fas fa-user"></i> Nome:</label>
+                <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Digite seu nome" required>
+            </div>
+            <div class="mb-3">
+                <label for="txtLogin" class="form-label"><i class="fas fa-user-circle"></i> Login:</label>
+                <input type="text" class="form-control" id="txtLogin" name="txtLogin" placeholder="Digite seu login" required>
+            </div>
+            <div class="mb-3">
+                <label for="txtSenha" class="form-label"><i class="fas fa-lock"></i> Senha:</label>
+                <input type="password" class="form-control" id="txtSenha" name="txtSenha" placeholder="Digite sua senha" required>
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Entrar</button>
+        </form>
+        <div class="text-center mt-3">
+            <p>Não tem uma conta? <a href="cadastro.html"><i class="fas fa-user-plus"></i> Cadastre-se</a></p>
+        </div>
+
+        <!-- Botão para alternar o modo -->
+        <button id="toggleMode" class="btn btn-outline-secondary mt-3">
+            <i class="fas fa-moon"></i> Modo Noturno
+        </button>
+    </div>
+
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./login.js"></script>
+
+    <script>
+        // JavaScript para alternar o modo noturno
+        const toggleButton = document.getElementById('toggleMode');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            // Alterando o ícone do botão conforme o modo
+            if (body.classList.contains('dark-mode')) {
+                toggleButton.innerHTML = '<i class="fas fa-sun"></i> Modo Claro';
+            } else {
+                toggleButton.innerHTML = '<i class="fas fa-moon"></i> Modo Noturno';
+            }
+        });
+    </script>
+</body>
+
+</html>
