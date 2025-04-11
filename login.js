@@ -3,6 +3,7 @@ document.getElementById('frmLogin').addEventListener('submit', async (e) => {
     const nome = document.getElementById('txtNome').value;
     const login = document.getElementById('txtLogin').value;
     const senha = document.getElementById('txtSenha').value;
+    const notificacao = document.getElementById('notificacao');
     const tipo = 'login';
 
     const response = await fetch('/api/mysql', {
@@ -13,4 +14,5 @@ document.getElementById('frmLogin').addEventListener('submit', async (e) => {
 
     const result = await response.json();
     console.log(result.message);
+    notificacao.innerText = result.message;
 });

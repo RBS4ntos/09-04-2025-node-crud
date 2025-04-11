@@ -1,6 +1,7 @@
 document.getElementById('frmRemocao').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const dados = document.getElementById('txtLogin').value;
+    const dados = document.getElementById('txtId').value;
+    const notificacao = document.getElementById('notificacao');
     const tipo = 'remocao';
 
     const response = await fetch('/api/mysql', {
@@ -11,4 +12,5 @@ document.getElementById('frmRemocao').addEventListener('submit', async (e) => {
 
     const result = await response.json();
     console.log(result.message);
+    notificacao.innerText = result.message
 });

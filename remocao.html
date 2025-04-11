@@ -122,21 +122,24 @@
 <body>
     <div class="container">
         <h2><i class="fas fa-trash-alt"></i> Remover</h2>
-        <h6>(preencha apenas um campo)</h6>
         <form id="frmRemocao">
             <div class="mb-3">
-                <label for="txtLogin" class="form-label"><i class="fas fa-user-circle"></i> Login:</label>
-                <input type="text" class="form-control" id="txtLogin" placeholder="Digite seu login" required>
+                <label for="txtLogin" class="form-label"><i class="fas fa-user-circle"></i> Id:</label>
+                <input type="text" class="form-control" id="txtId" placeholder="Digite seu ID" required>
             </div>
             <div class="mb-3">
             <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Remover</button>
         </form>
+        
         <!-- Botão para alternar entre os modos -->
-        <button id="toggleMode" class="btn btn-outline-secondary mt-3">
-            <i class="fas fa-moon"></i> Modo Noturno
-        </button>
+      
     </div>
+    
+    <button id="toggleMode" class="btn btn-outline-secondary mt-3">
+        <i class="fas fa-moon"></i> Modo Noturno
+    </button>
 
+    <h6 id="notificacao" class="align-items-center justify-content-center h-100 w-100"></h6>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./remocao.js"></script>
     <script>

@@ -113,28 +113,35 @@
 <body>
     <div class="container">
         <h2><i class="fas fa-eye"></i> Visualizar Dados</h2>
-        <form>
+        <form id="frmLeitura">
+            <div class="mb-3">
+                <label for="txtId" class="form-label"><i class="fas fa-user"></i> Id:</label>
+                <input type="text" class="form-control" id="txtId" placeholder="Seu id" disabled>
+            </div>
             <div class="mb-3">
                 <label for="txtNome" class="form-label"><i class="fas fa-user"></i> Nome:</label>
-                <input type="text" class="form-control" id="txtNome" placeholder="Digite seu nome" required>
+                <input type="text" class="form-control" id="txtNome" placeholder="Digite seu nome" >
             </div>
             <div class="mb-3">
                 <label for="txtLogin" class="form-label"><i class="fas fa-user-circle"></i> Login:</label>
-                <input type="text" class="form-control" id="txtLogin" placeholder="Digite seu login" required>
+                <input type="text" class="form-control" id="txtLogin" placeholder="Digite seu login" >
             </div>
             <div class="mb-3">
                 <label for="txtSenha" class="form-label"><i class="fas fa-lock"></i> Senha:</label>
-                <input type="password" class="form-control" id="txtSenha" placeholder="Digite sua senha" required disabled>
+                <input type="password" class="form-control" id="txtSenha" placeholder="Sua senha" disabled>
             </div>
-            <button type="submit" class="btn btn-info"><i class="fas fa-eye"></i> Visualizar</button>
+            <button type="submit" class="btn btn-info"><i class="fa fa-magnifying-glass"></i> Pesquisar</button>
         </form>
         <!-- Botão para alternar entre os modos -->
         <button id="toggleMode" class="btn btn-outline-secondary mt-3">
             <i class="fas fa-moon"></i> Modo Noturno
         </button>
+        <hr class="divider">
+        <h6 id="notificacao" class="align-items-center justify-content-center h-100 w-100">Digite o valor no campo que deseja pesquisar e clique em: "Pesquisar"</h6>
     </div>
 
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./leitura.js"></script>
     <script>
         // JavaScript para alternar o modo noturno
         const toggleButton = document.getElementById('toggleMode');
