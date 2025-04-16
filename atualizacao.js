@@ -6,6 +6,24 @@ document.getElementById('frmAtualizacao').addEventListener('submit', async (e) =
     const senha = document.getElementById('txtSenha').value;
     const notificacao = document.getElementById('notificacao');
 
+    if (nome.trim().length == 0) {
+        notificacao.innerHTML = "<b class=\"text-danger\">É necessário digitar um nome para continuar.</b>";
+        txtNome.focus();
+        return false;
+    }
+
+    if (login.trim().length == 0) {
+        notificacao.innerHTML = "<b class=\"text-danger\">É necessário digitar um login para continuar.</b>";
+        txtLogin.focus();
+        return false;
+    }
+
+    if (senha.trim().length == 0) {
+        notificacao.innerHTML = "<b class=\"text-danger\">É necessário digitar uma senha para continuar.</b>";
+        txtSenha.focus();
+        return false;
+    }
+
     const txtId = document.getElementById("txtId");
     const txtNome = document.getElementById("txtNome");
     const txtLogin = document.getElementById("txtLogin");
@@ -33,7 +51,6 @@ document.getElementById('frmAtualizacao').addEventListener('submit', async (e) =
     const result = await response.json();
     console.log(result.message);
 
-    selId.text = txtNome.value;
     notificacao.innerText = result.message;
 });
 
@@ -66,6 +83,7 @@ window.addEventListener('load', async (e) => {
         optTmp.dataset.senha = result.rows[i].senha;
         selId.add(optTmp);
     }
+    notificacao.innerText = "Dados carregados com sucesso!";
 });
 
 document.getElementById('selId').addEventListener('change', () => {
@@ -88,6 +106,4 @@ document.getElementById('selId').addEventListener('change', () => {
         txtLogin.value = "";
         txtSenha.value = "";
     }
-
-
 });

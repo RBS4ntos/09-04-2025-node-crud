@@ -124,8 +124,24 @@
         <h2><i class="fas fa-trash-alt"></i> Remover</h2>
         <form id="frmRemocao">
             <div class="mb-3">
-                <label for="txtLogin" class="form-label"><i class="fas fa-user-circle"></i> Id:</label>
-                <input type="text" class="form-control" id="txtId" placeholder="Digite seu ID" required>
+                <select id="selId" class="form-select" aria-label="Selecione aqui o registro">
+                    <option selected>Selecione aqui o registro</option>
+                </select>
+            <div class="mb-3">
+                <label for="txtNome" class="form-label"><i class="fas fa-user"></i> Id:</label>
+                <input type="text" class="form-control" id="txtId" placeholder="Seu id" disabled>
+            </div>
+            <div class="mb-3">
+                <label for="txtNome" class="form-label"><i class="fas fa-user"></i> Nome:</label>
+                <input type="text" class="form-control" id="txtNome" placeholder="Digite seu nome" disabled>
+            </div>
+            <div class="mb-3">
+                <label for="txtLogin" class="form-label"><i class="fas fa-user-circle"></i> Login:</label>
+                <input type="text" class="form-control" id="txtLogin" placeholder="Digite seu login" disabled>
+            </div>
+            <div class="mb-3">
+                <label for="txtSenha" class="form-label"><i class="fas fa-lock"></i> Senha:</label>
+                <input type="password" class="form-control" id="txtSenha" placeholder="Sua senha" disabled>
             </div>
             <div class="mb-3">
             <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Remover</button>
